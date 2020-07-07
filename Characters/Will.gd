@@ -7,7 +7,6 @@ var direction = Vector2.ZERO
 
 export var SPEED = 100
 
-
 func _process(_delta):
 	if direction:
 		animation_state.travel("Walk")

@@ -16,7 +16,7 @@ func _process(_delta):
 
 	var _e = move_and_slide(direction.normalized() * SPEED)
 
-func _unhandled_key_input(_event):
+func _unhandled_input(_event):
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 

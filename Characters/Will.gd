@@ -7,6 +7,11 @@ var direction = Vector2.ZERO
 
 export var SPEED = 100
 
+func _ready():
+	if Event.game_started:
+		position = Event.player_position
+		_set_animation_direction(Event.player_direction)
+
 func _process(_delta):
 	if direction:
 		animation_state.travel("Walk")

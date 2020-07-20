@@ -19,6 +19,10 @@ config/name="Dark Pages"
 run/main_scene="res://Maps/WillsRoom.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Event="*res://Singletons/Event.gd"
+
 [display]
 
 window/size/width=320

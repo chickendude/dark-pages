@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Characters/Will.tscn" type="PackedScene" id=1]
 [ext_resource path="res://data/sprites/tiles/house.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://TileSets/Carpets.tres" type="TileSet" id=5]
 [ext_resource path="res://TileSets/Floor.tres" type="TileSet" id=6]
 [ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/TextBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/WillsDoor.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27, 28 )
@@ -85,6 +87,7 @@ shape = SubResource( 3 )
 position = Vector2( 208, 224 )
 rotation = 3.14159
 collision_layer = 0
+script = ExtResource( 9 )
 map_name = "Hallway"
 x = 3.0
 y = 1.0
@@ -99,3 +102,5 @@ update_rotation = false
 update_scale = false
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
+
+[node name="TextBox" parent="." instance=ExtResource( 8 )]

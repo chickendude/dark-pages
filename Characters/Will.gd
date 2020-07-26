@@ -10,7 +10,8 @@ export var SPEED = 100
 func _ready():
 	if Event.game_started:
 		position = Event.player_position
-		_set_animation_direction(Event.player_direction)
+		_set_animation_direction(Event.player_direction)	
+	Event.connect("push_player_back", self, "_push_player_back")
 
 func _process(_delta):
 	if direction:
@@ -28,3 +29,10 @@ func _unhandled_input(_event):
 func _set_animation_direction(_direction):
 	animation_tree.set("parameters/Walk/blend_position", _direction)
 	animation_tree.set("parameters/Idle/blend_position", _direction)
+
+func _push_player_back(_position):
+	if _position.y:
+		position.y = _position.y
+	if _position.x:
+		position.x = _position.x
+	direction = Vector2.ZERO

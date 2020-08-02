@@ -1,7 +1,8 @@
 extends Node
 
 enum {
-	WILLS_DOOR_UNLOCKED
+	WILLS_DOOR_UNLOCKED,
+	WILLS_WINDOW_UNLOCKED
 }
 
 const TILE_SIZE = 32

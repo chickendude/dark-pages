@@ -1,8 +1,7 @@
 extends Node
 
 enum {
-	WILLS_DOOR_UNLOCKED,
-	WILLS_WINDOW_UNLOCKED
+	WILLS_DOOR_UNLOCKED
 }
 
 const TILE_SIZE = 32
@@ -26,8 +25,15 @@ func load_map(map_name, x, y, direction : Vector2):
 	print(map_name)
 	print(direction)
 	game_started = true
-	var offset_y = 15 if direction.y > 0 else 0
-	player_position = Vector2(x * TILE_SIZE + 15, y * TILE_SIZE + offset_y)
+	var offset_y : int
+	var offset_x : int
+	if direction.y != 0:
+		offset_y = 15 if direction.y > 0 else 0
+		offset_x = 15
+	else:
+		offset_y = 28
+		offset_x = 8 if direction.x > 0 else 26
+	player_position = Vector2(x * TILE_SIZE + offset_x, y * TILE_SIZE + offset_y)
 	player_direction = direction
 	var _e = get_tree().change_scene('res://Maps/' + map_name + '.tscn')
 

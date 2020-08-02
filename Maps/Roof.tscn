@@ -6,13 +6,13 @@
 [ext_resource path="res://TileSets/Walls.tres" type="TileSet" id=4]
 [ext_resource path="res://UI/TextBox.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.60671, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 lifetime_randomness = 1.0
 emission_shape = 2
 emission_box_extents = Vector3( 1, 160, 1 )
@@ -30,7 +30,7 @@ angle = -63.8
 angle_random = 0.3
 scale = 4.0
 scale_random = 1.0
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 2 )
 color = Color( 0.286275, 0.301961, 0.494118, 1 )
 
 [node name="Roof" type="Node2D"]
@@ -97,4 +97,4 @@ amount = 200
 lifetime = 1.5
 preprocess = 100.0
 visibility_rect = Rect2( 0, 0, 320, 188 )
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )

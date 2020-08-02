@@ -1,10 +1,11 @@
+tool
 extends StaticBody2D
 
 export (String) var map_name
 export (float) var x
 export (float) var y
 export (Vector2) var direction
-export (bool) var lights_on
+export (bool) var lights_on setget _set_lights_on,_get_lights_on
 export (String) var text
 
 const PLAYER_HITBOX_HEIGHT = 12
@@ -21,3 +22,13 @@ func _on_body_entered(body):
 		Event.push_player_back(direction)
 	else:
 		Event.load_map(map_name, x, y, direction)
+
+func _set_lights_on(_on):
+	lights_on = _on
+	if lights_on:
+		$Sprite.texture = load("res://data/sprites/objects/window_light.png")
+	else:
+		$Sprite.texture = load("res://data/sprites/objects/window.png")
+	
+func _get_lights_on():
+	return lights_on

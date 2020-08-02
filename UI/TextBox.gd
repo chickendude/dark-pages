@@ -8,7 +8,7 @@ var texts : Array
 func _ready():
 	textbox.visible = false
 	label.text = ''
-	Event.connect("display_text", self, "_queue_text")
+	var _e = Event.connect("display_text", self, "_queue_text")
 
 
 func _unhandled_key_input(event):

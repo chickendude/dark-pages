@@ -16,7 +16,7 @@ signal push_player_back(position)
 
 
 func _ready():
-	for i in range(5):
+	for _i in range(5):
 		events.append(false)
 
 

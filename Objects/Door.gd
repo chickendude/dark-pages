@@ -9,5 +9,5 @@ export (Vector2) var direction
 func _ready():
 	var _e = connect("body_entered", self, "_on_body_entered")
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	Event.load_map(map_name, x, y, direction)

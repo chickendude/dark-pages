@@ -5,4 +5,4 @@ func _on_body_entered(body):
 		._on_body_entered(body)
 	else:
 		Event.display_text("Hmm... the door appears to be locked...")
-		Event.push_player_back(Vector2(0, position.y))
+		Event.push_player_back(direction * 5)

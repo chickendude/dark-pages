@@ -28,7 +28,7 @@ func load_map(map_name, x, y, direction : Vector2):
 	var offset_y : int
 	var offset_x : int
 	if direction.y != 0:
-		offset_y = 15 if direction.y > 0 else 0
+		offset_y = 15 if direction.y > 0 else 32
 		offset_x = 15
 	else:
 		offset_y = 28

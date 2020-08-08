@@ -10,4 +10,5 @@ func _ready():
 	var _e = connect("body_entered", self, "_on_body_entered")
 
 func _on_body_entered(_body):
+	print('body: ' + _body.name)
 	Event.load_map(map_name, x, y, direction)

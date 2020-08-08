@@ -79,7 +79,10 @@ text = "Hey! That's the bathroom, no peaking! This isn't that kind of game!"
 [node name="WindowLightBecca" parent="YSort/Windows" instance=ExtResource( 2 )]
 position = Vector2( 224, 368 )
 rotation = 1.5708
-text = "This is Becca's room :)"
+map_name = "BeccasRoom"
+x = 1.0
+y = 4.0
+direction = Vector2( 1, 0 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 212, 123 )

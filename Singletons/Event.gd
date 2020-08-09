@@ -5,6 +5,11 @@ enum {
 }
 
 const TILE_SIZE = 32
+var diary_pages = [
+	preload("res://DiaryPages/DiaryPage1.tres"),
+	preload("res://DiaryPages/DiaryPage2.tres")
+]
+
 
 var events : Array
 var game_started = false
@@ -13,7 +18,6 @@ var player_direction = Vector2.ZERO
 
 signal display_text(text)
 signal push_player_back(position)
-
 
 func _ready():
 	for _i in range(5):

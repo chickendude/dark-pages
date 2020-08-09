@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://DiaryPages/DiaryPage.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+page_number = 2
+text = "Deary Diary,
+
+Today we met our new neighbors, the ones who live to the right of us. They've got a son named Kevin, who's really great. It might be a bit early to say this but I think I've made a new friend! Or I hope so, at least.
+
+His parents also seem really nice, his dad even made us a PB&J while Kevin was showing me his games. We talked a lot, he promised we would exchange things. And his mom told me I could come over to play with their son whenever I liked!
+
+Even Sheila came to say hi. We found her resting on Kevin's window, in his room. He seems to like her a lot.
+
+But then, when we were heading out... something happened. Mom wasn't feeling well. That reminded me why we moved here in the first place. I don't get why, but my stepdad gets angry at her when she feels sick. It's not like mom can control It!  He even shouted at her while Kevin's parents were trying to help... 
+
+Mom's trying a new treatmet, I really hope that It'll help soon. She's a real strong woman, you know, Mr. Diary? When we first got here, she was the one that moved most of the boxes inside the house, all by herself. [I got so wrapped up in setting up my computer and books and stuff that I completely forgot about everything else. And I'm not sure where *he* was. Mom didn't mention it, in any case.]
+
+Get well soon, mom!"

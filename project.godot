@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Will",
+"language": "GDScript",
+"path": "res://Characters/Will.gd"
+} ]
 _global_script_class_icons={
-
+"Will": ""
 }
 
 [application]
@@ -53,6 +58,13 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
 }
 
 [layer_names]

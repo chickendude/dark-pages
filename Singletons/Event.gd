@@ -32,7 +32,7 @@ func load_map(map_name, x, y, direction : Vector2):
 		offset_x = 15
 	else:
 		offset_y = 28
-		offset_x = 8 if direction.x > 0 else 26
+		offset_x = 7 if direction.x > 0 else 25
 	player_position = Vector2(x * TILE_SIZE + offset_x, y * TILE_SIZE + offset_y)
 	player_direction = direction
 	var _e = get_tree().change_scene('res://Maps/' + map_name + '.tscn')

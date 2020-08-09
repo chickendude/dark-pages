@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Characters/Will.tscn" type="PackedScene" id=1]
 [ext_resource path="res://data/sprites/tiles/house.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/TextBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/WillsDoor.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Window.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/DiaryPage.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27, 28 )
@@ -96,7 +97,7 @@ y = 1.0
 direction = Vector2( 0, 1 )
 
 [node name="Window" parent="YSort/Furniture" instance=ExtResource( 10 )]
-position = Vector2( 32, 110 )
+position = Vector2( 32, 112 )
 rotation = -1.5708
 map_name = "Roof"
 x = 6.0
@@ -106,6 +107,24 @@ direction = Vector2( -1, 0 )
 [node name="WindowLocked" parent="YSort/Furniture" instance=ExtResource( 10 )]
 position = Vector2( 112, 32 )
 text = "The window's stuck... can't get it open!"
+
+[node name="Pickups" type="YSort" parent="YSort"]
+
+[node name="DiaryPage" parent="YSort/Pickups" instance=ExtResource( 11 )]
+position = Vector2( 158, 31 )
+text = "Dear Diary,
+
+I promised that I'd start writing in you as soon as we got to our new house. Well guess what? We've finally moved in!
+
+My room is just ENORMOUS and so full of colors, I love it! I played a while with my sister, that little Becca, she was sooo happy! Though I can't say who was happier, her or Sheila (Sheila's my little kitten!). Even if she acts like a princess a lot of the time, I can tell she really enjoys being here, she couldn't stop running around and exploring, not even for a moment.
+
+I have so much space now, maybe even too much. There's plenty of room for new stuff [my books, my games, etc.], though I don't now's the best time to ask mom for anything else. I overheard her asking my new stepdad for some help... needless to say, he wasn't very happy.
+
+But... it's okay, it seems they made up, at least. I'm trying really hard to bond with him, I've even started trying to call him \"dad\" to make mom happy.
+
+Anyway, gotta go now, there's so much to do and to be honest I'm just so excited! Things are really looking up.
+
+Tomorrow, we're going to meet the neighbors, hope I can make new friends!"
 
 [node name="Will" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 156, 93 )

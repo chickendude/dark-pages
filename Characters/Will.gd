@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Will
+
 onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree["parameters/playback"]
 

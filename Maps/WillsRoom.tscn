@@ -38,6 +38,7 @@ format = 1
 tile_data = PoolIntArray( 196611, 0, 0 )
 
 [node name="WallsTilemap" type="TileMap" parent="."]
+position = Vector2( 0, 1 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 32 )
 cell_clip_uv = true

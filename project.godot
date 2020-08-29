@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://DiaryPages/DiaryPage.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "StepdadMonster",
+"language": "GDScript",
+"path": "res://Characters/StepdadMonster.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Will",
 "language": "GDScript",
 "path": "res://Characters/Will.gd"
 } ]
 _global_script_class_icons={
 "DiaryPage": "",
+"StepdadMonster": "",
 "Will": ""
 }
 

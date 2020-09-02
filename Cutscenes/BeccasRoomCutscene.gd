@@ -59,14 +59,15 @@ func start_cutscene() -> void:
     yield(stepdad, "destination_reached")
     
     stepdad.set_facing_direction(Vector2.UP)
-    yield(tree.create_timer(2), "timeout")
+    yield(tree.create_timer(1), "timeout")
 
     # show next text
-    for i in range(5):
-        var num_pixels = (i & 1) * 2 - 1
-        print(num_pixels)
-        camera.offset_h = num_pixels
+    camera.smoothing_enabled = false
+    for i in range(6):
+        var num_pixels : float = (i & 1) * 2 - 1
+        camera.offset_h = num_pixels / 10
         yield(tree.create_timer(.1), "timeout")
+    camera.smoothing_enabled = true
     camera.offset_h = 0
 
     thought_bubble = Bubble.instance()

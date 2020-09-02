@@ -12,7 +12,7 @@ var will_in_range := false
 var will : Will = null
 var destination : Vector2
 
-export var SPEED = 100
+export var speed = 100
 
 signal destination_reached()
 
@@ -36,7 +36,7 @@ func _physics_process(_delta):
     else:
         animation_state.travel("Idle")
 
-    var _e = move_and_slide(direction.normalized() * SPEED)
+    var _e = move_and_slide(direction.normalized() * speed)
 
 func _unhandled_input(_event):
 #    direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

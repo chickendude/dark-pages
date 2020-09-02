@@ -1,5 +1,6 @@
 extends Area2D
 
+class_name Door
 
 export (String) var map_name
 export (float) var x

@@ -34,7 +34,7 @@ tile_data = PoolIntArray( 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4,
 [node name="Furniture" type="YSort" parent="YSort"]
 
 [node name="Crib" type="StaticBody2D" parent="YSort/Furniture"]
-position = Vector2( 96, 91 )
+position = Vector2( 158, 121 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Furniture/Crib"]
 position = Vector2( -19, -24 )

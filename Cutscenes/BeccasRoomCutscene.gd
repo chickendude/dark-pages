@@ -69,6 +69,9 @@ func start_cutscene() -> void:
         yield(tree.create_timer(.1), "timeout")
     camera.smoothing_enabled = true
     camera.offset_h = 0
+    
+    stepdad.set_facing_direction(Vector2.RIGHT)
+    yield(wait(), 'completed')
 
     thought_bubble = Bubble.instance()
     thought_bubble.text = '!'
@@ -96,3 +99,8 @@ func start_cutscene() -> void:
 
     camera.limit_right = 32 * 10
 
+func wait() -> void:
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")

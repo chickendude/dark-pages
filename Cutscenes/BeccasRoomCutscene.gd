@@ -1,5 +1,7 @@
 extends Node2D
 
+const Bubble = preload("res://UI/ThoughtBubble.tscn")
+
 onready var stepdad : StepdadMonster = $StepdadMonster
 onready var remote_transform : RemoteTransform2D = $StepdadMonster/RemoteTransform2D
 var door : Door
@@ -33,11 +35,20 @@ func start_cutscene() -> void:
     stepdad.move_to(destination)
     yield(stepdad, "destination_reached")
     
+    # move to window
     destination.x -= 32 * 3
     stepdad.move_to(destination)
     yield(stepdad, "destination_reached")
 
-    # pause 1 second
+
+    yield(tree.create_timer(1), "timeout")
+
+    var thought_bubble : ThoughtBubble = Bubble.instance()
+    thought_bubble.text = '...'
+    thought_bubble.duration = 1
+    stepdad.add_child(thought_bubble)
+
+    # pause
     yield(tree.create_timer(2), "timeout")
 
     stepdad.set_facing_direction(Vector2.RIGHT)
@@ -51,9 +62,17 @@ func start_cutscene() -> void:
     yield(tree.create_timer(2), "timeout")
 
     # show next text
-    Event.display_text("* CRASH *")
-    Event.display_text("What was that noise? Sheila...")
-    Event.display_text("SHEILA!!!!")
+    for i in range(5):
+        var num_pixels = (i & 1) * 2 - 1
+        print(num_pixels)
+        camera.offset_h = num_pixels
+        yield(tree.create_timer(.1), "timeout")
+    camera.offset_h = 0
+
+    thought_bubble = Bubble.instance()
+    thought_bubble.text = '!'
+    stepdad.add_child(thought_bubble)
+    yield(tree.create_timer(2), "timeout")
 
     stepdad.speed = 120
     destination.x += 32

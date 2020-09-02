@@ -1,22 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Cutscenes/BeccasRoomCutscene.gd" type="Script" id=1]
-[ext_resource path="res://Maps/Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Characters/StepdadMonster.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/TextBox.tscn" type="PackedScene" id=9]
 
 [node name="BeccasRoomCutscene" type="YSort"]
 script = ExtResource( 1 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 325, 126 )
-limit_left = 0
-limit_right = 416
-limit_bottom = 224
-
-[node name="TextBox" parent="." instance=ExtResource( 9 )]
-
-[node name="YSort" type="YSort" parent="."]
 
 [node name="StepdadMonster" parent="." instance=ExtResource( 5 )]
 position = Vector2( 325, 126 )

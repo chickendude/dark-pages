@@ -71,6 +71,6 @@ func _player_in_range(body : Will):
     will_in_range = true
     will = body
 
-func _player_out_of_range(body : Will):
+func _player_out_of_range(_body : Will):
     will_in_range = false
     will = null

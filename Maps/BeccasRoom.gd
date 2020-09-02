@@ -5,7 +5,6 @@ const BeccasRoomCutscene = preload("res://Cutscenes/BeccasRoomCutscene.tscn")
 func _ready():
     if not Event.events[Event.BECCAS_ROOM_CUTSCENE]:
         Event.events[Event.BECCAS_ROOM_CUTSCENE] = true
-        
         # load cutscene
         var cutscene = BeccasRoomCutscene.instance()
         var ysort = $YSort

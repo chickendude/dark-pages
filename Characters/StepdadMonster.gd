@@ -9,9 +9,12 @@ onready var raycast = $RayCast2D
 
 var direction := Vector2.ZERO
 var will_in_range := false
-var will : Will= null
+var will : Will = null
+var destination : Vector2
 
 export var SPEED = 100
+
+signal destination_reached()
 
 func _ready():
     var _e = sight_range.connect("body_entered", self, "_player_in_range")
@@ -20,6 +23,13 @@ func _ready():
 func _physics_process(_delta):
     if will_in_range:
         _check_in_sight()
+    
+    if destination:
+        direction = position.direction_to(destination)
+        if position.distance_to(destination) < 1:
+            direction = Vector2.ZERO
+            emit_signal("destination_reached")
+    
     if direction:
         animation_state.travel("Walk")
         _set_animation_direction(direction)
@@ -32,6 +42,16 @@ func _unhandled_input(_event):
 #    direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 #    direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
     pass
+
+
+func set_facing_direction(_direction : Vector2):
+    _set_animation_direction(_direction)
+
+func move_direction(_direction : Vector2):
+    direction = _direction
+
+func move_to(_destination : Vector2):
+    destination = _destination
 
 func _set_animation_direction(_direction):
     animation_tree.set("parameters/Walk/blend_position", _direction)

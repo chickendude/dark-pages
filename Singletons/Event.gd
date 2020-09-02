@@ -2,7 +2,7 @@ extends Node
 
 enum {
     WILLS_DOOR_UNLOCKED,
-    BELLAS_ROOM_CUTSCENE,
+    BECCAS_ROOM_CUTSCENE,
 }
 
 const TILE_SIZE = 32

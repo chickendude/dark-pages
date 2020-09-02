@@ -1,29 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://TileSets/Floor.tres" type="TileSet" id=1]
-[ext_resource path="res://Characters/Will.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Maps/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TileSets/Walls.tres" type="TileSet" id=4]
-[ext_resource path="res://data/sprites/objects/crib.png" type="Texture" id=5]
-[ext_resource path="res://Objects/Window.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Maps/BeccasRoom.gd" type="Script" id=8]
+[ext_resource path="res://Cutscenes/BeccasRoomCutscene.gd" type="Script" id=1]
+[ext_resource path="res://TileSets/Walls.tres" type="TileSet" id=2]
+[ext_resource path="res://TileSets/Floor.tres" type="TileSet" id=3]
+[ext_resource path="res://Maps/Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Characters/StepdadMonster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Window.tscn" type="PackedScene" id=7]
+[ext_resource path="res://data/sprites/objects/crib.png" type="Texture" id=8]
+[ext_resource path="res://UI/TextBox.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 6 )
 
-[node name="BeccasRoom" type="Node2D"]
-script = ExtResource( 8 )
+[node name="BeccasRoomCutscene" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="FloorTilemap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
 
 [node name="WallTilemap" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_mask = 0
 format = 1
@@ -38,14 +39,14 @@ position = Vector2( 96, 91 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Furniture/Crib"]
 position = Vector2( -19, -24 )
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/Crib"]
 position = Vector2( 0, -6 )
 shape = SubResource( 1 )
 
-[node name="Window" parent="YSort/Furniture" instance=ExtResource( 6 )]
+[node name="Window" parent="YSort/Furniture" instance=ExtResource( 7 )]
 position = Vector2( 64, 112 )
 rotation = -1.5708
 map_name = "Roof"
@@ -53,7 +54,7 @@ x = 6.0
 y = 11.0
 direction = Vector2( -1, 0 )
 
-[node name="Door" parent="YSort/Furniture" instance=ExtResource( 7 )]
+[node name="Door" parent="YSort/Furniture" instance=ExtResource( 6 )]
 position = Vector2( 256, 112 )
 rotation = 1.5708
 map_name = "Hallway"
@@ -61,14 +62,15 @@ x = 1.0
 y = 7.0
 direction = Vector2( 1, 0 )
 
-[node name="Will" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 156, 93 )
+[node name="StepdadMonster" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 98, 145 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Will"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/StepdadMonster"]
 remote_path = NodePath("../../../Camera2D")
-update_rotation = false
-update_scale = false
 
-[node name="Camera2D" parent="." instance=ExtResource( 3 )]
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 98, 145 )
 limit_left = 0
 limit_bottom = 224
+
+[node name="TextBox" parent="." instance=ExtResource( 9 )]

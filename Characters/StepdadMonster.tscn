@@ -390,9 +390,7 @@ height = 2.0
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 6, 5 )
 
-[node name="StepdadMonster" type="KinematicBody2D" groups=[
-"Will",
-]]
+[node name="StepdadMonster" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 2147483651
 script = ExtResource( 2 )

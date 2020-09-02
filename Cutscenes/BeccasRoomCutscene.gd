@@ -1,18 +1,20 @@
 extends Node2D
 
 onready var stepdad : StepdadMonster = $StepdadMonster
+onready var remote_transform : RemoteTransform2D = $StepdadMonster/RemoteTransform2D
 var door : Door
 var will : Will
+var camera : Camera2D
 
-func _ready() -> void:
-    pass
-
-func load_nodes(_door : Door, _will : Will) -> void:
+func load_nodes(_door : Door, _will : Will, _camera : Camera2D) -> void:
     door = _door
     will = _will
+    camera = _camera
 
 func start_cutscene() -> void:
     # set up
+    camera.limit_right = 32 * 13
+    remote_transform.remote_path = camera.get_path()
     var destination = Vector2(32*8,32*3 + 24)
     stepdad.position = destination
     stepdad.speed = 40
@@ -66,5 +68,11 @@ func start_cutscene() -> void:
     yield(stepdad, "destination_reached")
     stepdad.queue_free()
     door.visible = true
-    yield(tree.create_timer(.5), "timeout")
+    will.visible = true
     will.paused = false
+    yield(tree.create_timer(.5), "timeout")
+    camera.position = will.position
+    yield(tree.create_timer(.5), "timeout")
+
+    camera.limit_right = 32 * 10
+

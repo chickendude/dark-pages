@@ -11,6 +11,7 @@ script = ExtResource( 1 )
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 325, 126 )
 limit_left = 0
+limit_right = 416
 limit_bottom = 224
 
 [node name="TextBox" parent="." instance=ExtResource( 9 )]

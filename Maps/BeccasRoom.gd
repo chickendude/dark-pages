@@ -10,7 +10,7 @@ func _ready():
         var cutscene = BeccasRoomCutscene.instance()
         var ysort = $YSort
         ysort.add_child(cutscene)
-        cutscene.load_nodes($YSort/Furniture/Door, $YSort/Will)
+        cutscene.load_nodes($YSort/Furniture/Door, $YSort/Will, $Camera2D)
         yield(cutscene.start_cutscene(), 'completed')
         $YSort/Will.visible = true
 

@@ -51,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Event="*res://Singletons/Event.gd"
+SoundManager="*res://Singletons/SoundManager.tscn"
 
 [display]
 

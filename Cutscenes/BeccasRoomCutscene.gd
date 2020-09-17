@@ -20,6 +20,7 @@ func start_cutscene() -> void:
     var destination = Vector2(32*8,32*3 + 24)
     stepdad.position = destination
     stepdad.speed = 40
+    SoundManager.play_single(SoundManager.door_open_fast)
     door.visible = false
     will.visible = false
     will.paused = true
@@ -89,6 +90,7 @@ func start_cutscene() -> void:
     destination.x += 32 * 2 + 10
     stepdad.move_to(destination)
     yield(stepdad, "destination_reached")
+    SoundManager.stop_loop(SoundManager.footsteps)
     stepdad.queue_free()
     door.visible = true
     will.visible = true

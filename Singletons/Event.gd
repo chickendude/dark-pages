@@ -27,8 +27,7 @@ func _ready():
 
 # load a map and place the player in the proper coordinates
 func load_map(map_name, x, y, direction : Vector2):
-#	print(map_name)
-#	print(direction)
+    SoundManager.stop_all()
     game_started = true
     var offset_y : int
     var offset_x : int

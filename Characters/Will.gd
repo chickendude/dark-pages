@@ -19,9 +19,11 @@ func _ready() -> void:
 func _process(_delta) -> void:
     if not paused:
         if direction:
+            SoundManager.play_loop(SoundManager.player_footsteps)
             animation_state.travel("Walk")
             _set_animation_direction(direction)
         else:
+            SoundManager.stop_loop(SoundManager.player_footsteps)
             animation_state.travel("Idle")
     
         var _e = move_and_slide(direction.normalized() * SPEED)

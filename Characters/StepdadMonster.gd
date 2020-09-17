@@ -31,10 +31,14 @@ func _physics_process(_delta):
             emit_signal("destination_reached")
     
     if direction:
+        SoundManager.play_loop(SoundManager.footsteps)
         animation_state.travel("Walk")
         _set_animation_direction(direction)
     else:
         animation_state.travel("Idle")
+        yield(get_tree().create_timer(.1), "timeout")
+        if not direction:
+            SoundManager.stop_loop(SoundManager.footsteps)
 
     var _e = move_and_slide(direction.normalized() * speed)
 

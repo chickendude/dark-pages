@@ -4,6 +4,7 @@ enum {
     WILLS_DOOR_UNLOCKED,
     BECCAS_ROOM_WINDOW,
     BECCAS_ROOM_CUTSCENE,
+    BECCAS_ROOM_MONSTER_ENTER,
 }
 
 const TILE_SIZE = 32
@@ -22,7 +23,7 @@ signal display_text(text)
 signal push_player_back(position)
 
 func _ready():
-    for _i in range(5):
+    for _i in range(10):
         events.append(false)
 
 

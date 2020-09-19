@@ -1,8 +1,6 @@
 tool
 extends "res://Objects/Window.gd"
 
-signal move_will_cutscene()
-
 # set in Roof.gd
 var root_node : Roof
 

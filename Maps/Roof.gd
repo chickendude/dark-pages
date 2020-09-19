@@ -16,5 +16,5 @@ func start_will_cutscene():
     will.direction = Vector2.RIGHT
     yield(get_tree().create_timer(.1), "timeout")
     will.direction = Vector2.ZERO
-    yield(get_tree().create_timer(2), "timeout")
+    yield(get_tree().create_timer(1), "timeout")
     will.input_blocked = false

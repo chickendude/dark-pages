@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/door_open_slow.ogg-62e38060fd18079df3109ebec11726d5.oggstr"
+
+[deps]
+
+source_file="res://data/audio/effects/door_open_slow.ogg"
+dest_files=[ "res://.import/door_open_slow.ogg-62e38060fd18079df3109ebec11726d5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

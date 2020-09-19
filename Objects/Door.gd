@@ -13,5 +13,5 @@ func _ready():
 func _on_body_entered(_body: KinematicBody2D):
     print('body: ' + _body.name)
     if _body.is_in_group("Will"):
-        SoundManager.open_door()
+        SoundManager.play_single(SoundManager.door_open_fast)
         Event.load_map(map_name, x, y, direction)

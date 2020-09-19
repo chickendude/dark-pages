@@ -2,6 +2,7 @@ extends Node
 
 enum {
     WILLS_DOOR_UNLOCKED,
+    BECCAS_ROOM_WINDOW,
     BECCAS_ROOM_CUTSCENE,
 }
 

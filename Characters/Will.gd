@@ -7,6 +7,7 @@ onready var animation_state = animation_tree["parameters/playback"]
 
 var direction = Vector2.ZERO
 var paused = false
+var input_blocked = false
 
 export var SPEED = 100
 
@@ -25,12 +26,13 @@ func _process(_delta) -> void:
         else:
             SoundManager.stop_loop(SoundManager.player_footsteps)
             animation_state.travel("Idle")
-    
+
         var _e = move_and_slide(direction.normalized() * SPEED)
 
 func _unhandled_input(_event) -> void:
-    direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-    direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+    if not input_blocked:
+        direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+        direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 
 func _set_animation_direction(_direction) -> void:
     animation_tree.set("parameters/Walk/blend_position", _direction)

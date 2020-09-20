@@ -9,6 +9,7 @@ func _ready():
     SoundManager.play_loop(SoundManager.rain)
     window_light.root_node = self
 
+
 func start_will_cutscene():
     will.input_blocked = true
     will.direction = Vector2.UP

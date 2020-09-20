@@ -31,8 +31,9 @@ func fade_in(player : AudioStreamPlayer, seconds : int) -> void:
 
 func play_loop(player : AudioStreamPlayer) -> void:
     if not cur_playing.has(player):
-        player.stream.loop = true
         cur_playing.append(player)
+    if not player.is_playing():
+        player.stream.loop = true
         player.play()
 
 func stop_loop(player : AudioStreamPlayer) -> void:

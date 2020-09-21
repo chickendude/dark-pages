@@ -8,6 +8,7 @@ onready var sight_range = $SightRangeArea
 onready var raycast = $RayCast2D
 
 var direction := Vector2.ZERO
+var paused := false
 var will_in_range := false
 var will : Will = null
 var destination : Vector2
@@ -15,38 +16,34 @@ var destination : Vector2
 export var speed = 100
 
 signal destination_reached()
+signal open_door()
 
 func _ready():
     var _e = sight_range.connect("body_entered", self, "_player_in_range")
     _e = sight_range.connect("body_exited", self, "_player_out_of_range")
 
 func _physics_process(_delta):
-    if will_in_range:
-        _check_in_sight()
-    
-    if destination:
-        direction = position.direction_to(destination)
-        if position.distance_to(destination) < 1:
-            direction = Vector2.ZERO
-            emit_signal("destination_reached")
-    
-    if direction:
-        SoundManager.play_loop(SoundManager.footsteps)
-        animation_state.travel("Walk")
-        _set_animation_direction(direction)
-    else:
-        animation_state.travel("Idle")
-        yield(get_tree().create_timer(.1), "timeout")
-        if not direction:
-            SoundManager.stop_loop(SoundManager.footsteps)
+    if not paused:
+        if will_in_range:
+            _check_in_sight()
+        
+        if destination:
+            direction = position.direction_to(destination)
+            if position.distance_to(destination) < 1:
+                direction = Vector2.ZERO
+                emit_signal("destination_reached")
+        
+        if direction:
+            SoundManager.play_loop(SoundManager.footsteps)
+            animation_state.travel("Walk")
+            _set_animation_direction(direction)
+        else:
+            animation_state.travel("Idle")
+            yield(get_tree().create_timer(.1), "timeout")
+            if not direction:
+                SoundManager.stop_loop(SoundManager.footsteps)
 
-    var _e = move_and_slide(direction.normalized() * speed)
-
-func _unhandled_input(_event):
-#    direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-#    direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-    pass
-
+        var _e = move_and_slide(direction.normalized() * speed)
 
 func set_facing_direction(_direction : Vector2):
     _set_animation_direction(_direction)
@@ -67,7 +64,11 @@ func _check_in_sight():
         raycast.cast_to = will.position - position - raycast.position - Vector2(0, 10)
         raycast.force_raycast_update()
         if not raycast.is_colliding():
-            print('Gotcha!')
+            _found_will()
+
+func _found_will() -> void:
+    print('Gotcha!')
+
 
 # signal functions
 

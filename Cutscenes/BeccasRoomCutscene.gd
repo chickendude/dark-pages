@@ -14,6 +14,8 @@ func load_nodes(_door : Door, _will : Will, _camera : Camera2D) -> void:
     camera = _camera
 
 func start_cutscene() -> void:
+    yield(get_tree().create_timer(.5), "timeout")
+    return
     # set up
     camera.limit_right = 32 * 13
     remote_transform.remote_path = camera.get_path()

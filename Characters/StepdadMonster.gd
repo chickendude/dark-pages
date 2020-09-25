@@ -9,6 +9,7 @@ onready var raycast = $RayCast2D
 
 var direction := Vector2.ZERO
 var paused := false
+var remote_controlled := false
 var will_in_range := false
 var will : Will = null
 var destination : Vector2
@@ -43,7 +44,8 @@ func _physics_process(_delta):
             if not direction:
                 SoundManager.stop_loop(SoundManager.footsteps)
 
-        var _e = move_and_slide(direction.normalized() * speed)
+        if not remote_controlled:
+            var _e = move_and_slide(direction.normalized() * speed)
 
 func set_facing_direction(_direction : Vector2):
     _set_animation_direction(_direction)

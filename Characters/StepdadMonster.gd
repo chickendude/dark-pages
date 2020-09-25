@@ -61,10 +61,12 @@ func _set_animation_direction(_direction):
 func _check_in_sight():
     if will:
         # raycast cast_to coordinates are local to the raycast, so need to account for that
-        raycast.cast_to = will.position - position - raycast.position - Vector2(0, 10)
+        raycast.cast_to = will.global_position - global_position - raycast.position - Vector2(0, 10)
         raycast.force_raycast_update()
-        if not raycast.is_colliding():
+        if raycast.get_collider() is Will:
             _found_will()
+        else:
+            print('')
 
 func _found_will() -> void:
     print('Gotcha!')

@@ -430,6 +430,7 @@ shape = SubResource( 23 )
 ]]
 position = Vector2( -6, -6 )
 rotation = 1.5708
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea2D"]
 position = Vector2( 0, 5 )

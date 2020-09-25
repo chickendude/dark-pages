@@ -1,5 +1,8 @@
 extends StepdadMonster
 
+# note: check out path2d stuff
+# https://www.youtube.com/watch?v=-JOI9HzPanw
+
 const Bubble = preload("res://UI/ThoughtBubble.tscn")
 
 

@@ -17,7 +17,6 @@ var destination : Vector2
 export var speed = 100
 
 signal destination_reached()
-signal open_door()
 
 func _ready():
     var _e = sight_range.connect("body_entered", self, "_player_in_range")

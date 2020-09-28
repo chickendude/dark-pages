@@ -21,8 +21,8 @@ func fade_in(player : AudioStreamPlayer, seconds : int) -> void:
     print('fade in')
     player.stream.loop = true
     var volume_db = player.volume_db
-    tween.interpolate_property(player, 'volume_db', -60, volume_db, seconds, Tween.TRANS_LINEAR, Tween.EASE_IN)
-    tween.start()
+    var _e = tween.interpolate_property(player, 'volume_db', -60, volume_db, seconds, Tween.TRANS_LINEAR, Tween.EASE_IN)
+    _e = tween.start()
     player.play()
     if not cur_playing.has(player):
         cur_playing.append(player)

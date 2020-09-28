@@ -10,7 +10,7 @@ func _ready():
     walker.remote_controlled = true
 
 
-func _process(delta):
+func _process(_delta):
     var cur_pos := path_follow.global_position
     path_follow.offset += 1
     var new_pos := path_follow.global_position

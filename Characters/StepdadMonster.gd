@@ -59,6 +59,8 @@ func move_to(_destination : Vector2):
 func _set_animation_direction(_direction):
     animation_tree.set("parameters/Walk/blend_position", _direction)
     animation_tree.set("parameters/Idle/blend_position", _direction)
+    # Add pi otherwise the rotation is behind the stepdad.
+    sight_range.rotation = _direction.angle() + PI
 
 func _check_in_sight():
     if will:

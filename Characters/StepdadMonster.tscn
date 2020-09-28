@@ -441,7 +441,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="SightRangeArea"]
-polygon = PoolVector2Array( 0, -30, -200, -100, -200, 100, 0, 0 )
+polygon = PoolVector2Array( 0, -9, -200, -100, -200, 100, 0, 7 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, -26 )

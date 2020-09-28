@@ -18,9 +18,11 @@ export var speed = 100
 
 signal destination_reached()
 
+
 func _ready():
     var _e = sight_range.connect("body_entered", self, "_player_in_range")
     _e = sight_range.connect("body_exited", self, "_player_out_of_range")
+
 
 func _physics_process(_delta):
     if not paused:
@@ -46,14 +48,18 @@ func _physics_process(_delta):
         if not remote_controlled:
             var _e = move_and_slide(direction.normalized() * speed)
 
+
 func set_facing_direction(_direction : Vector2):
     _set_animation_direction(_direction)
+
 
 func move_direction(_direction : Vector2):
     direction = _direction
 
+
 func move_to(_destination : Vector2):
     destination = _destination
+
 
 func _set_animation_direction(_direction):
     animation_tree.set("parameters/Walk/blend_position", _direction)
@@ -84,3 +90,6 @@ func _player_in_range(body : Will):
 func _player_out_of_range(_body : Will):
     will_in_range = false
     will = null
+
+func on_action_reached(_body):
+    print(_body.name)

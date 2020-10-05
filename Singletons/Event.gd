@@ -16,11 +16,13 @@ var diary_pages = [
 
 var events : Array
 var game_started = false
+var game_over = false setget game_over
 var player_position = Vector2.ZERO
 var player_direction = Vector2.ZERO
 
 signal display_text(text)
 signal push_player_back(position)
+signal game_over()
 
 func _ready():
     for _i in range(10):
@@ -53,3 +55,9 @@ func display_text(text):
 # have StaticBody2D 
 func push_player_back(position):
     emit_signal("push_player_back", position)
+
+
+func game_over(value) -> void:
+    game_over = value
+    if game_over:
+        emit_signal("game_over")

@@ -12,6 +12,7 @@ var input_blocked = false
 export var SPEED = 100
 
 func _ready() -> void:
+    Event.connect("game_over", self, "_game_over")
     if Event.game_started:
         position = Event.player_position
         _set_animation_direction(Event.player_direction)	
@@ -41,3 +42,7 @@ func _set_animation_direction(_direction) -> void:
 func _push_player_back(_position) -> void:
     self.position -= _position
     direction = Vector2.ZERO
+
+func _game_over() -> void:
+    paused = true
+    _set_animation_direction(Vector2.ZERO)

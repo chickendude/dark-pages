@@ -7,6 +7,8 @@ onready var animation_state = animation_tree["parameters/playback"]
 onready var sight_range = $SightRangeArea
 onready var raycast = $RayCast2D
 
+const DialogBubble = preload("res://UI/ThoughtBubble.tscn")
+
 var direction := Vector2.ZERO
 var paused := false
 var remote_controlled := false
@@ -30,7 +32,7 @@ func _physics_process(_delta):
             _check_in_sight()
         
         if destination:
-            direction = position.direction_to(destination)
+            direction = global_position.direction_to(destination)
             if position.distance_to(destination) < 1:
                 direction = Vector2.ZERO
                 emit_signal("destination_reached")
@@ -68,7 +70,7 @@ func _set_animation_direction(_direction):
     sight_range.rotation = _direction.angle() + PI
 
 func _check_in_sight():
-    if will:
+    if will and not Event.game_over:
         # raycast cast_to coordinates are local to the raycast, so need to account for that
         raycast.cast_to = will.global_position - global_position - raycast.position - Vector2(0, 10)
         raycast.force_raycast_update()
@@ -78,6 +80,11 @@ func _check_in_sight():
             print('')
 
 func _found_will() -> void:
+    Event.game_over = true
+    var bubble = DialogBubble.instance()
+    bubble.text = "!"
+    add_child(bubble)
+    move_to(will.global_position)
     print('Gotcha!')
 
 

@@ -8,11 +8,12 @@ enum {
 }
 
 const TILE_SIZE = 32
-var diary_pages = [
+const diary_pages = [
     preload("res://DiaryPages/DiaryPage1.tres"),
     preload("res://DiaryPages/DiaryPage2.tres")
 ]
 
+const GameOverScene = preload("res://UI/GameOver.tscn")
 
 var events : Array
 var game_started = false
@@ -61,3 +62,6 @@ func game_over(value) -> void:
     game_over = value
     if game_over:
         emit_signal("game_over")
+        yield(get_tree().create_timer(2), "timeout")
+        var game_over_scene = GameOverScene.instance()
+        get_tree().root.add_child(game_over_scene)

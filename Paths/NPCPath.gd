@@ -3,16 +3,20 @@ extends Path2D
 
 onready var path_follow : PathFollow2D = $PathFollow2D
 onready var actions = $Actions
-onready var stepdad : StepdadMonster = $PathFollow2D/StepdadMonster
+#onready var stepdad : StepdadMonster = $PathFollow2D/StepdadMonster
+onready var remote2d = $PathFollow2D/RemoteTransform2D
 
-var walker
+export (NodePath) var walker
+
+#var walker
 var paused = false
 var stopped = false
 
 
 func _ready() -> void:
 	Event.connect("game_over", self, "_stop")
-	walker = path_follow.get_children().front()
+	remote2d.remote_path = "../../" + walker
+	walker = get_node(walker)
 	walker.remote_controlled = true
 	for action in actions.get_children():
 		if action is PathAction:

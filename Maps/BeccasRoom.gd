@@ -5,7 +5,8 @@ const StepdadMonsterCheckRoom = preload("res://Characters/BeccasRoom/StepdadMons
 
 onready var door = $YSort/Furniture/Door
 onready var ysort = $YSort
-onready var path_follow = $Path2D/PathFollow2D
+onready var paths = $Paths
+onready var stepdad_monster = $YSort/StepdadMonster
 
 func _ready():
 	if not Event.events[Event.BECCAS_ROOM_CUTSCENE]:
@@ -19,6 +20,13 @@ func _ready():
 		$YSort/Will.visible = true
 	if not Event.events[Event.BECCAS_ROOM_MONSTER_ENTER]:
 		print('monster')
+		var num_paths : int = paths.get_child_count()
+		var index : int = randi() % num_paths
+		for path in paths.get_children():
+			if path.get_index() == index:
+				path.load_walker(stepdad_monster.get_path())
+			else:
+				path.queue_free()
 #        var monster = StepdadMonsterCheckRoom.instance()
 #        monster.connect("open_door", self, "_open_door")
 #        path_follow.add_child(monster)

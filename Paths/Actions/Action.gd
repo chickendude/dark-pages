@@ -8,8 +8,8 @@ signal resume()
 var npc
 
 func _ready():
-    connect("body_entered", self, "_on_body_entered")
+	var _e = connect("body_entered", self, "_on_body_entered")
 
 
 func _on_body_entered(body : StepdadMonster):
-    print(name + " has not implemented _on_body_entered function yet.")
+	print(name + " has not implemented _on_body_entered function yet.")

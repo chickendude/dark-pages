@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TileSets/Floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Characters/Will.tscn" type="PackedScene" id=2]
@@ -13,6 +13,21 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 6 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 298.393, 114.615, 0, 0, 0, 0, 231.121, 130.172, 0, 0, 0, 0, 184.031, 139.422, 0, 0, 0, 0, 156.281, 136.899, 0, 0, 0, 0, 155.44, 127.229, 0, 0, 0, 0, 170.997, 127.229, 0, 0, 0, 0, 296, 114 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 296, 114, 0, 0, 0, 0, 180.247, 148.251, 0, 0, 0, 0, 159.645, 129.331, 0, 0, 0, 0, 182.77, 125.547, 0, 0, 0, 0, 181.929, 107.888, 0, 0, 0, 0, 181.508, 85.184, 0, 0, 0, 0, 205.474, 84.3431, 0, 0, 0, 0, 250.462, 108.309, 0, 0, 0, 0, 296, 114 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 296, 114, 0, 0, 0, 0, 221.871, 126.808, 0, 0, 0, 0, 221.871, 136.899, 0, 0, 0, 0, 229.019, 144.888, 0, 0, 0, 0, 221.451, 152.035, 0, 0, 0, 0, 153.759, 148.672, 0, 0, 0, 0, 157.122, 123.865, 0, 0, 0, 0, 181.508, 124.286, 0, 0, 0, 0, 186.554, 102.002, 0, 0, 0, 0, 226.496, 94.4339, 0, 0, 0, 0, 255.928, 109.99, 0, 0, 0, 0, 296, 114 )
+}
 
 [node name="BeccasRoom" type="Node2D"]
 script = ExtResource( 8 )
@@ -81,7 +96,15 @@ position = Vector2( 73, 124 )
 limit_left = 0
 limit_bottom = 224
 
-[node name="NPCPath" parent="." instance=ExtResource( 9 )]
-walker = NodePath("../YSort/StepdadMonster")
+[node name="Paths" type="Node2D" parent="."]
 
-[editable path="NPCPath"]
+[node name="NPCPath" parent="Paths" instance=ExtResource( 9 )]
+curve = SubResource( 2 )
+
+[node name="NPCPath2" parent="Paths" instance=ExtResource( 9 )]
+visible = false
+curve = SubResource( 3 )
+
+[node name="NPCPath3" parent="Paths" instance=ExtResource( 9 )]
+visible = false
+curve = SubResource( 4 )
